@@ -1,10 +1,11 @@
-import 'package:compound/locator.dart';
-import 'package:compound/models/post.dart';
-import 'package:compound/services/dialog_service.dart';
-import 'package:compound/services/firestore_service.dart';
-import 'package:compound/services/navigation_service.dart';
-import 'package:compound/viewmodels/base_model.dart';
 import 'package:flutter/foundation.dart';
+
+import '../locator.dart';
+import '../models/post.dart';
+import '../services/dialog_service.dart';
+import '../services/firestore_service.dart';
+import '../services/navigation_service.dart';
+import 'base_model.dart';
 
 class CreatePostViewModel extends BaseModel {
   final FirestoreService _firestoreService = locator<FirestoreService>();

@@ -1,9 +1,15 @@
-import 'package:compound/models/post.dart';
 import 'package:flutter/material.dart';
+
+import '../../models/post.dart';
 
 class PostItem extends StatelessWidget {
   final Post post;
-  const PostItem({Key key, this.post}) : super(key: key);
+  final Function onDeleteItem;
+  const PostItem({
+    Key key,
+    this.post,
+    this.onDeleteItem,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +26,11 @@ class PostItem extends StatelessWidget {
           )),
           IconButton(
             icon: Icon(Icons.close),
-            onPressed: () {},
+            onPressed: () {
+              if (onDeleteItem != null) {
+                onDeleteItem();
+              }
+            },
           ),
         ],
       ),

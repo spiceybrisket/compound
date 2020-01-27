@@ -1,10 +1,10 @@
-import 'package:compound/constants/route_names.dart';
-import 'package:compound/locator.dart';
-import 'package:compound/services/authentication_service.dart';
-import 'package:compound/services/dialog_service.dart';
-import 'package:compound/services/navigation_service.dart';
 import 'package:flutter/foundation.dart';
 
+import '../constants/route_names.dart';
+import '../locator.dart';
+import '../services/authentication_service.dart';
+import '../services/dialog_service.dart';
+import '../services/navigation_service.dart';
 import 'base_model.dart';
 
 class SignUpViewModel extends BaseModel {

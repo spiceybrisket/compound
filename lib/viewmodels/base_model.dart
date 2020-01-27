@@ -1,7 +1,8 @@
-import 'package:compound/locator.dart';
-import 'package:compound/models/user.dart';
-import 'package:compound/services/authentication_service.dart';
 import 'package:flutter/widgets.dart';
+
+import '../locator.dart';
+import '../models/user.dart';
+import '../services/authentication_service.dart';
 
 class BaseModel extends ChangeNotifier {
   final AuthenticationService _authenticationService =

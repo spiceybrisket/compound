@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:compound/models/post.dart';
-import 'package:compound/models/user.dart';
 import 'package:flutter/services.dart';
+
+import '../models/post.dart';
+import '../models/user.dart';
 
 class FirestoreService {
   final CollectionReference _usersCollectionReference =

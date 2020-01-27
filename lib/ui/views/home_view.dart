@@ -1,9 +1,9 @@
-import 'package:compound/models/post.dart';
-import 'package:compound/ui/shared/ui_helpers.dart';
-import 'package:compound/ui/widgets/post_item.dart';
-import 'package:compound/viewmodels/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/provider_architecture.dart';
+
+import '../../viewmodels/home_view_model.dart';
+import '../shared/ui_helpers.dart';
+import '../widgets/post_item.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key key}) : super(key: key);
@@ -12,6 +12,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ViewModelProvider<HomeViewModel>.withConsumer(
         viewModel: HomeViewModel(),
+        onModelReady: (model) => model.listenToPosts(),
         builder: (context, model, child) => Scaffold(
               backgroundColor: Colors.white,
               floatingActionButton: FloatingActionButton(
@@ -36,12 +37,24 @@ class HomeView extends StatelessWidget {
                       ],
                     ),
                     Expanded(
-                        child: ListView.builder(
-                      itemCount: 3,
-                      itemBuilder: (context, index) => PostItem(
-                        post: Post(title: '$index Title'),
-                      ),
-                    ))
+                        child: model.posts != null
+                            ? ListView.builder(
+                                itemCount: model.posts.length,
+                                itemBuilder: (context, index) =>
+                                    GestureDetector(
+                                  onTap: () => model.editPost(index),
+                                  child: PostItem(
+                                    post: model.posts[index],
+                                    onDeleteItem: () => model.deletePost(index),
+                                  ),
+                                ),
+                              )
+                            : Center(
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation(
+                                      Theme.of(context).primaryColor),
+                                ),
+                              ))
                   ],
                 ),
               ),

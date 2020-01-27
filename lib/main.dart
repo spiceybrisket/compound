@@ -1,11 +1,11 @@
-import 'package:compound/ui/views/home_view.dart';
-import 'package:compound/ui/views/startup_view.dart';
 import 'package:flutter/material.dart';
-import 'package:compound/services/navigation_service.dart';
-import 'package:compound/services/dialog_service.dart';
-import 'managers/dialog_manager.dart';
-import 'ui/router.dart';
+
 import 'locator.dart';
+import 'managers/dialog_manager.dart';
+import 'services/dialog_service.dart';
+import 'services/navigation_service.dart';
+import 'ui/router.dart';
+import 'ui/views/startup_view.dart';
 
 void main() {
   // Register all the models and services before the app starts
